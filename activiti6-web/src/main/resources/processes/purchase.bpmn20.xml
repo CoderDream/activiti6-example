@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/testm1528548020598" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.w3.org/1999/XPath" id="m1528548020598" name="" targetNamespace="http://www.activiti.org/testm1528548020598" typeLanguage="http://www.w3.org/2001/XMLSchema">
+  <process id="purchaseProcess" isClosed="false" isExecutable="true" name="采购流程" processType="None">
+    <startEvent id="purchaseStart" name="采购流程开始"/>
+    <userTask activiti:assignee="${user.id}" activiti:exclusive="true" id="createOrder" name="创建订单"/>
+    <userTask activiti:assignee="${user.id}" activiti:exclusive="true" id="deptAudit" name="部门经理审批"/>
+    <userTask activiti:assignee="${user.id}" activiti:exclusive="true" id="topMAudit" name="总经理审批"/>
+    <userTask activiti:assignee="${user.id}" activiti:exclusive="true" id="financeAudit" name="财务审批"/>
+    <endEvent id="purchaseEnd" name="采购流程结束"/>
+    <sequenceFlow id="_3" sourceRef="purchaseStart" targetRef="createOrder"/>
+    <sequenceFlow id="_4" sourceRef="createOrder" targetRef="deptAudit"/>
+    <sequenceFlow id="_8" sourceRef="deptAudit" targetRef="topMAudit"/>
+    <sequenceFlow id="_9" sourceRef="topMAudit" targetRef="financeAudit"/>
+    <sequenceFlow id="_10" sourceRef="financeAudit" targetRef="purchaseEnd"/>
+  </process>
+  <bpmndi:BPMNDiagram documentation="background=#FFFFFF;count=1;horizontalcount=1;orientation=0;width=842.4;height=1195.2;imageableWidth=832.4;imageableHeight=1185.2;imageableX=5.0;imageableY=5.0" id="Diagram-_1" name="New Diagram">
+    <bpmndi:BPMNPlane bpmnElement="purchaseProcess">
+      <bpmndi:BPMNShape bpmnElement="purchaseStart" id="Shape-purchaseStart">
+        <dc:Bounds height="32.0" width="32.0" x="105.0" y="85.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="createOrder" id="Shape-createOrder">
+        <dc:Bounds height="55.0" width="85.0" x="195.0" y="80.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="deptAudit" id="Shape-deptAudit">
+        <dc:Bounds height="55.0" width="85.0" x="315.0" y="80.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="topMAudit" id="Shape-topMAudit">
+        <dc:Bounds height="55.0" width="85.0" x="445.0" y="80.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="financeAudit" id="Shape-financeAudit">
+        <dc:Bounds height="55.0" width="85.0" x="440.0" y="200.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="55.0" width="85.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="purchaseEnd" id="Shape-purchaseEnd">
+        <dc:Bounds height="32.0" width="32.0" x="310.0" y="205.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="32.0" width="32.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_3" id="BPMNEdge__3" sourceElement="purchaseStart" targetElement="createOrder">
+        <di:waypoint x="136.49193338482968" y="105.0"/>
+        <di:waypoint x="170.0" y="105.0"/>
+        <di:waypoint x="195.0" y="105.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4" id="BPMNEdge__4" sourceElement="createOrder" targetElement="deptAudit">
+        <di:waypoint x="280.0" y="107.5"/>
+        <di:waypoint x="315.0" y="107.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8" sourceElement="deptAudit" targetElement="topMAudit">
+        <di:waypoint x="400.0" y="107.5"/>
+        <di:waypoint x="445.0" y="107.5"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9" sourceElement="topMAudit" targetElement="financeAudit">
+        <di:waypoint x="485.0" y="135.0"/>
+        <di:waypoint x="485.0" y="200.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10" sourceElement="financeAudit" targetElement="purchaseEnd">
+        <di:waypoint x="440.0" y="225.0"/>
+        <di:waypoint x="390.0" y="225.0"/>
+        <di:waypoint x="341.4919333848297" y="225.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="0.0" width="0.0" x="0.0" y="0.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

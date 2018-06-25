@@ -1,0 +1,17 @@
+server:
+  port: 9001
+  context-path: /
+spring:
+  profiles:
+    active: dev
+  application:
+    name: activiti6-example
+  activiti:
+    custom-mybatis-xmlmappers: /processes
+  thymeleaf:
+    mode: HTML5
+    encoding: utf-8
+    suffix: .html
+    prefix: classpath:/templates/
+mybatis:
+  mapper-locations: classpath:mybatis/*/mapper/*.xml
