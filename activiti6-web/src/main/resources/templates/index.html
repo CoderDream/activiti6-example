@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+    <style type="text/css">
+        .container{width:100%;}
+        .header{height:80px;}
+        .middle{height:600px;}
+        .middle-left{width:20%;float:left;background-color: aqua;height:100%;}
+        .middle-right{width:80%;float:right;background-color: bisque;height:100%;}
+        .footer{clear:both;height:30px;background-color: bisque;}
+    </style>
 </head>
 <body>
-      系统首页
+      <div class="container">
+            <div class="header">
+                header
+            </div>
+            <div class="middle">
+                <div class="middle-left">
+                    <ul>
+                        <li>
+                            采购单管理
+                            <ul>
+                                <li>采购</li>
+                            </ul>
+                        </li>
+                        <li>
+                            员工管理
+                        </li>
+                    </ul>
+                </div>
+                <div class="middle-right">
+                    <iframe src="default.html" name="mainFrame">
+
+                    </iframe>
+                </div>
+            </div>
+            <div class="footer">
+                version-footer
+            </div>
+      </div>
 </body>
 </html>
