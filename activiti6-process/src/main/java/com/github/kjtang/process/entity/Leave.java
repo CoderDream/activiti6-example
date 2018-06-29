@@ -9,5 +9,8 @@ import lombok.Data;
 @Data
 public class Leave extends BaseEntity {
 
+    private Long id;
+
+    private String name;
 
 }

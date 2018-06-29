@@ -24,6 +24,11 @@ public class UserController {
         return "login";
     }
 
+    @RequestMapping("/home")
+    public String home(){
+        return "home";
+    }
+
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(User user, HttpSession session){
         User dbUser = userService.login(user);
