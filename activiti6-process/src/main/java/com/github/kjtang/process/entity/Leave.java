@@ -13,4 +13,5 @@ public class Leave extends BaseEntity {
 
     private String name;
 
+
 }

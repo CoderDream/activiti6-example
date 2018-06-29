@@ -13,4 +13,10 @@ public class Order extends PageBaseEntity{
     //采购单编号
     private String no;
 
+    //采购单名称
+    private String name;
+
+    //采购金额
+    private Float price;
+
 }
