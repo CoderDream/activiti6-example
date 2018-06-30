@@ -68,7 +68,7 @@
             layer.msg(msg, {icon: 5,anim:6,offset: 't'});
         }
         $("#code").click(function(){
-            var url = "/getCode?"+new Date().getTime();
+            var url = "getVerifyCode?"+new Date().getTime();
             this.src = url;
         }).click().show();
         $('#code').on('mouseover',function(){
