@@ -15,3 +15,10 @@ spring:
     prefix: classpath:/templates/
 mybatis:
   mapper-locations: classpath:mybatis/*/mapper/*.xml
+
+#分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

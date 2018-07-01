@@ -11,6 +11,9 @@ import java.sql.Timestamp;
 @Data
 public class BaseEntity implements Serializable{
 
+    public static Integer DELETE_YES = 1;
+    public static Integer DELETE_NO = 0;
+
     //主键
     private Long id;
 
@@ -20,5 +23,7 @@ public class BaseEntity implements Serializable{
     //最后修改时间
     private Timestamp modifyTime;
 
+    //是否删除
+    private Integer deleted;
 
 }

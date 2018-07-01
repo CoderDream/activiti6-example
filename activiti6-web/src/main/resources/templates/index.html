@@ -1,48 +1,146 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
-    <style type="text/css">
-        .container{width:100%;}
-        .header{height:80px;}
-        .middle{height:600px;}
-        .middle-left{width:20%;float:left;background-color: aqua;height:100%;}
-        .middle-right{width:80%;float:right;background-color: bisque;height:100%;}
-        .footer{clear:both;height:30px;background-color: bisque;}
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>len-脚手架</title>
+    <link rel="stylesheet" th:href="@{/plugin/layui-2.3.0/css/layui.css}" media="all" />
+    <link rel="stylesheet" th:href="@{/plugin/font-awesome/css/font-awesome.min.css}" media="all" />
+    <link rel="stylesheet" th:href="@{/plugin/build/css/app.css}" media="all" />
+    <link rel="stylesheet" th:href="@{/plugin/build/css/themes/default.css}" media="all" id="skin" kit-skin="kit-skin" />
+    <style>
+        .layui-footer{background-color: #2F4056;}
+        .layui-side-scroll{border-right: 3px solid #009688;}
     </style>
 </head>
-<body>
-      <div class="container">
-            <div class="header">
-                header
-            </div>
-            <div class="middle">
-                <div class="middle-left">
-                    <ul>
-                        <li>
-                            <a href="home" target="mainFrame">系统首页</a>
-                        </li>
-                        <li>
-                            采购单管理
-                            <ul>
-                                <li>采购</li>
-                            </ul>
-                        </li>
-                        <li>
-                            员工管理
-                        </li>
-                    </ul>
-                </div>
-                <div class="middle-right">
-                    <iframe src="home" name="mainFrame" width="100%" height="100%" frameborder="0">
 
-                    </iframe>
-                </div>
-            </div>
-            <div class="footer">
-                version-footer
-            </div>
-      </div>
+<body class="kit-theme">
+<div class="layui-layout layui-layout-admin kit-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">len-脚手架</div>
+        <div class="layui-logo kit-logo-mobile"></div>
+        <div class="layui-hide-xs">
+            <ul class="layui-nav layui-layout-left kit-nav">
+                <li class="layui-nav-item"><a href="javascript:s();">会员管理</a></li>
+                <li class="layui-nav-item"><a href="javascript:;">博客管理</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它系统</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">邮件管理</a></dd>
+                        <dd><a href="javascript:;">消息管理</a></dd>
+                        <dd><a href="javascript:;">授权管理</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <ul class="layui-nav layui-layout-right kit-nav">
+            <li class="layui-nav-item">
+                <a href="javascript:;"><i class="layui-icon">&#xe63f;</i> 皮肤</a>
+                <dl class="layui-nav-child skin">
+                    <dd><a href="javascript:;" data-skin="default" style="color:#393D49;"><i class="layui-icon">&#xe658;</i> 默认</a></dd>
+                    <dd><a href="javascript:;" data-skin="orange" style="color:#ff6700;"><i class="layui-icon">&#xe658;</i> 橘子橙</a></dd>
+                    <dd><a href="javascript:;" data-skin="green" style="color:#00a65a;"><i class="layui-icon">&#xe658;</i> 春天绿</a></dd>
+                    <dd><a href="javascript:;" data-skin="pink" style="color:#FA6086;"><i class="layui-icon">&#xe658;</i> 少女粉</a></dd>
+                    <dd><a href="javascript:;" data-skin="blue.1" style="color:#00c0ef;"><i class="layui-icon">&#xe658;</i> 天空蓝</a></dd>
+                    <dd><a href="javascript:;" data-skin="red" style="color:#dd4b39;"><i class="layui-icon">&#xe658;</i> 枫叶红</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="/images/" class="layui-nav-img"/>admin
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;" kit-target="kit-target" data-options="{url:'basic.html',icon:'&#xe658;',title:'基本资料',id:'966'}"><span>基本资料</span></a></dd>
+                    <dd><a href="javascript:;">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-nav-tree layui-bg-black kit-side">
+        <div class="layui-side-scroll">
+            <div class="kit-side-fold"><i class="fa fa-navicon" aria-hidden="true"></i></div>
+            <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar="kit-navbar">
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;"><i aria-hidden="true" class="layui-icon">&#xe614;</i><span> 系统管理</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'menu/showMenu',icon:'',title:'菜单管理',id:'1001'}">
+                                <i class="layui-icon"></i><span> 菜单管理</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'userListUI',icon:'&#xe6af;',title:'用户管理',id:'1002'}">
+                                <i class="layui-icon">&#xe6af;</i><span> 用户管理</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'/role/showRole',icon:'&#xe613;',title:'角色管理',id:'1003'}">
+                                <i class="layui-icon">&#xe613;</i><span> 角色管理</span></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;"><i aria-hidden="true" class="layui-icon">&#xe62c;</i><span> 系统监控</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'log/showLog',icon:'&#xe60a;',title:'系统日志',id:'2001'}">
+                                <i class="layui-icon">&#xe60a;</i><span> 系统日志</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'swagger-ui.html',icon:'&#xe64e;',title:'接口api',id:'2002'}">
+                                <i class="layui-icon">&#xe64e;</i><span> 接口api</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'druid/index.html',icon:'&#xe628;',title:'系统监控',id:'2003'}">
+                                <i class="layui-icon">&#xe628;</i><span> 系统监控</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'/job/showJob',icon:'&#xe756;',title:'定时任务',id:'2004'}">
+                                <i class="layui-icon">&#xe756;</i><span> 定时任务</span></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;"><i aria-hidden="true" class="layui-icon">&#xe628;</i><span> 工作流程管理</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'/act/goAct',icon:'&#xe630;',title:'流程管理',id:'3001'}">
+                                <i class="layui-icon">&#xe630;</i><span> 流程管理</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'/act/goActModel',icon:'&#xe60a;',title:'模型列表',id:'3002'}">
+                                <i class="layui-icon">&#xe60a;</i><span> 模型列表</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'/leave/showLeave',icon:'&#xe650;',title:'请假流程',id:'3003'}">
+                                <i class="layui-icon">&#xe650;</i><span> 请假流程</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" kit-target="kit-target" data-options="{url:'/leave/showTask',icon:'&#xe6af;',title:'待办任务',id:'3004'}">
+                                <i class="layui-icon">&#xe6af;</i><span> 待办任务</span></a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-body"  id="container">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;"><i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop">&#xe63e;</i> 请稍等...</div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        2017 &copy;
+        <a target="_blank" href="https://my.oschina.net/u/3312115/blog">开源中国博客</a> 由zxm倾心打造的一款快速开发脚手架
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/plugin/layui-2.3.0/layui.js}"></script>
+<script type="text/javascript" th:src="@{/plugin/tools/main.js}"></script>
 </body>
+
 </html>

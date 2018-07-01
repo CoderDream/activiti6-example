@@ -22,5 +22,24 @@
         </where>
     </select>
 
+    <resultMap id="userResultMap" type="com.github.kjtang.core.entity.User">
+        <id property="id" column="id"/>
+        <result property="username" column="userName"/>
+        <result property="birthday" column="birthday"/>
+        <result property="email" column="email"/>
+        <result property="photo" column="photo"/>
+        <result property="realName" column="realName"/>
+        <result property="createTime" column="createTime"/>
+        <result property="modifyTime" column="modifyTime"/>
+    </resultMap>
+
+    <select id="getList" parameterType="com.github.kjtang.core.entity.User" resultMap="userResultMap">
+        SELECT * FROM  sys_user
+    </select>
+
+    <select id="getPageList" parameterType="com.github.kjtang.core.entity.User" resultType="com.github.kjtang.core.entity.User">
+        SELECT * FROM  sys_user
+    </select>
+
 </mapper>
 
